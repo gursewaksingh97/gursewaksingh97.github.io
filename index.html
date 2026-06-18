@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Gursewak Singh Portfolio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+<style>
+/*======================================
+//--//-->   ABOUT
+======================================*/
+
+.about-mf .box-shadow-full {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.about-mf .about-img {
+  margin-bottom: 2rem;
+}
+
+.about-mf .about-img img {
+  margin-left: 10px;
+}
+
+.skill-mf .progress {
+  /* background-color: #cde1f8; */
+  margin: .5rem 0 1.2rem 0;
+  border-radius: 0;
+  height: .7rem;
+}
+
+.skill-mf .progress .progress-bar {
+  height: .7rem;
+  background-color: #ffbd39;
+}
+
+/* Animation styles */
+#typing-animation {
+  position: relative;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(20, end) infinite;
+}
+
+#typing-animation:before {
+  content: "";
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #ccc;
+  animation: typing-cursor 0.5s ease-in-out infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typing-cursor {
+  from {
+    width: 5px;
+  }
+  to {
+    width: 0;
+  }
+}
+
+/* project image zoom effect */
+
+.zoom-effect {
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+}
+
+.zoom-effect:hover {
+  transform: scale(1.1);
+}
+
+</style>
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Gursewak Singh</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
+	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+	  <section id="home-section" class="hero">
+		  <div class="home-slider  owl-carousel">
+	       <div class="slider-item">
+	      	<div class="overlay"></div>
+	         <div class="container">
+				<div class="row d-md-flex no-gutters slider-text align-items-center justify-content-center text-center">
+	          <!-- <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true"> -->
+	          	<!-- <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png);height:fit-content;">
+	          	 <div class="overlay"></div>
+	          	</div> -->
+		          <!-- <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }"> -->
+					<div class="col-md-12 d-flex align-items-center justify-content-center ftco-animate text-center">
+		          	<div class="text">
+		          		<span class="subheading">Hello!</span>
+			            <h1 class="mb-4 mt-3">I'm <span>Gursewak Singh</span></h1>
+
+						<!-- Element to contain animated typing -->
+						<span id="typing-animation"></span>
+
+						<script>
+						// Initialize the typing animation
+						const typingAnimationElement = document.getElementById('typing-animation');
+						// Create an array of typing text
+						const typingTexts = [
+						'CSE Engineer',
+						'Data Analyst',
+						];
+						// Create a function to display the typing animation for a given text
+						function playTypingAnimation(text) {
+						// Loop through each character and add it to the element
+						for (let i = 0; i < text.length; i++) {
+							setTimeout(() => {
+							typingAnimationElement.textContent += text[i];
+							}, i * 200); // Increase the delay to slow down the typing animation
+						}
+						// Once the animation is complete, reset the text and start over
+						setTimeout(() => {
+							typingAnimationElement.textContent = '';
+							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+						}, text.length * 200);
+						}
+						// Start the typing animation loop
+						playTypingAnimation(typingTexts[0]);
+						</script>
+						<br>
+						<br>
+			            <h2>An Aspiring L1 Data Analyst</h2>
+						<br>
+			            <p><a href="https://github.com/gursewaksingh97" target="_blank" class="btn btn-primary py-3 px-4">GitHub</a> &nbsp; &nbsp;
+						<a href="https://www.linkedin.com/in/gursewakcse97" target="_blank" class="btn btn-primary py-3 px-4">LinkedIn</a></p>
+		            </div>
+		          </div>
+	        	</div>
+	        </div>
+	      </div>
+		</div>
+    </section>
+
+    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+    	<div class="container">
+			<div class="row">
+				<div class="row d-flex align-items-stretch">
+				<!-- <div class="row d-flex"> -->
+					<div class="col-md-6 col-lg-5 d-flex">
+						<div class="img-about img d-flex align-items-center">
+							<div class="overlay">
+								<div class="row">
+									<div class="col-sm-6 col-md-5">
+									  <div class="about-img">
+										<img src="images/about-me.png" class="img-fluid rounded b-shadow-a" alt="">
+									  </div>
+									</div>
+									<!-- Details next to profile image -->
+									<div class="col-sm-6 col-md-7">
+									  <div class="about-info">
+										<p><span class="title-s">Name: </span> <span> Gursewak Singh</span></p>
+										<p><span class="title-s">Experience: </span> <span>Internship @ Alpha It Managed Services (Jan -july 2026)</span></p>
+										<p><span class="title-s">Job Status: </span> <span> Open To Work</span></p>
+										<p><span class="title-s">Address: </span> <span> Mohali, India</span></p>
+									  </div>
+									</div>
+								  </div>
+
+								<div class="skill-mf">
+									<br>
+									<p class="title-s">Skills</p>
+									<span>Excel</span> <span class="pull-right">80%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+
+									<span>SQL</span> <span class="pull-right">80%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									
+									<span>Python</span> <span class="pull-right">85%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+
+									<span>Power Bi</span> <span class="pull-right">85%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+
+									<span>Data Visualization</span> <span class="pull-right">80%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+
+									<span>ML & FastAPIs </span> <span class="pull-right">40%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+						<div class="row justify-content-start pb-3">
+							<div class="col-md-12 heading-section ftco-animate">
+								<h1 class="big">About</h1>
+								<h2 class="mb-4">About Me</h2>
+								<p>I’m a B.Tech CSE student passionate about Data Analysis and Visualization. I love exploring datasets, cleaning messy data, and finding hidden trends using Excel, Python, Pandas, Sql and Power BI. I’m currently building projects to enhance my analytical thinking and problem-solving skills while preparing for a full-time role as a Data Analyst.</p>
+								<ul class="about-info mt-4 px-md-0 px-2">
+									<li class="d-flex"><span>Profile:</span> <span>Data Science &amp; Analytics</span></li>
+									<li class="d-flex"><span>Education:</span> <span>B.Tech CSE(2022-2026)</span></li>
+									<li class="d-flex"><span>Language:</span> <span>English, Hindi, Punjabi</span></li>
+									<li class="d-flex"><span>Tools Known:</span> <span>Power BI, Ms Excel, PostGre, MySQL Workbench, Vs Code, Jupyter Notebook, Tableau, Github &amp; Postman</span></li>
+									<!-- <li class="d-flex"><span>Other Skills:</span> <span>C++, Excel, Web Dev &amp; Django</span></li> -->
+									<li class="d-flex"><span>Interest:</span> <span>Photography &amp; Sufi Music</span></li>	
+								</ul>
+							</div>
+						</div>
+						<div class="counter-wrap ftco-animate d-flex mt-md-3">
+							<div class="text">
+								<p class="mb-4">
+									<span class="number" data-number="15">0</span> <span>+</span>
+									<span>&nbsp; Projects completed</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
+<!-- -----------------------------RESUME---------------------------------------------------->
+    <section class="ftco-section ftco-no-pb" id="resume-section">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5">
+          	<div class="col-md-10 heading-section text-center ftco-animate">
+          	<h1 class="big big-2">Resume</h1>
+            <h2 class="mb-4">Resume</h2>
+            <p>Data Analytics enthusiast with practical experience in Excel, SQL, Power BI, and Python to extract meaningful insights from data. Additionally, familiar with Machine Learning concepts, FastAPI APIs, Streamlit, and CNN projects.</p>
+          </div>
+        </div>
+		
+		<!-- Technical Skills Section -->
+		 <div class="row">
+			<h1 class="big-4">Technical Skills</h1>
+			<div class="underline"></div>
+		</div>
+		<br>
+			<div class="row">
+				<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">Data Analytics</span>
+    					<h2 class="position">• Excel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• SQL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• PowerBi<br>• Pandas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Numpy</h2>	
+    				</div>
+    			</div>
+
+				<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">Databases</span>
+    					<h2 class="position">• MySQL <br> • PostGre</h2>	
+    				</div>
+    			</div>
+
+				<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">Visualization</span>
+    					<h2 class="position">• MatplotLib<br>• Seaborn</h2>	
+    				</div>
+    			</div>
+
+				<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">Programming Languages</span>
+    					<h2 class="position">• Python<br>• C++</h2>	
+    				</div>
+    			</div>
+
+				<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">Machine Learning (Basics)</span>
+    					<h2 class="position">• Data Preprocessing<br>• Scikit-learn&nbsp;&nbsp;&nbsp;• CNN</h2>	
+    				</div>
+    			</div>
+
+				<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">Web Dev & APIs (Basics)</span>
+    					<h2 class="position">• HTML&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• CSS<br>• FastAPI&nbsp;&nbsp;&nbsp;&nbsp;• Streamlit</h2>	
+    				</div>
+    			</div>	
+    		</div>
+			
+		<!-- Training Section -->		
+			<div class="row">
+				<h1 class="big-4">Industrial Trainings</h1>
+				<div class="underline"></div>
+			</div>
+			<br>
+				<div class="row">
+					<div class="col-md-6">
+    					<div class="resume-wrap ftco-animate">
+							<span class="date">DATA &nbsp; ANALYTICS</span>
+							<h2 class="position" >January-June, 2026</h2>
+							<a href="https://alphait.us/" target="_blank"><span class="position">Alpha It, Mohali</span></a>
+    					</div>
+    				</div>
+    				<div class="col-md-6">
+    					<div class="resume-wrap ftco-animate">
+    						<span class="date">DJANGO</span>
+    						<h2 class="position">June-July, 2025</h2>
+    						<a href="https://techcadd.com/" target="_blank"><span class="position">TechCadd, Hoshairpur</span></a>
+    					</div>
+					</div>
+    			</div>
+
+				<!-- Education -->
+			<div class="row">
+				<h1 class="big-4">Education</h1>
+				<div class="underline"></div>
+			</div>
+			<br>
+			<div class="row">
+    			<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">2022-2026</span>
+    					<h2 class="position">B.Tech Cse</h2>
+    					<a href="https://sbbsuniversity.ac.in/" target="_blank"><span class="position">Sant Baba Bhag Singh University, Jalandhar</span></a>
+    				</div>
+    			</div>
+
+    			<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">2020-2021</span>
+    					<h2 class="position">Higher Secondary School</h2>
+    					<a href="https://www.google.com/maps/place/Meritorious+school/@31.6442182,74.8075139,17z/data=!3m1!4b1!4m6!3m5!1s0x39196515da9188cf:0xfae986974a5864ad!8m2!3d31.6442182!4d74.8100888!16s%2Fg%2F11bwv6sl8k?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank">
+						<span class="position">Meritorious School, Amritsar</span>
+						</a>
+    				</div>
+				</div>
+    		</div>
+
+    		<div class="row justify-content-center gap-1 mt-5">
+    				<p><a href="https://drive.google.com/file/d/17sVws3lUEMqG8I2xLbcymjhokEQXoVjZ/view?usp=drive_link" class="btn btn-primary py-4 px-5">
+					View Resume
+					</a></p>&nbsp; &nbsp;
+					<p><a href="https://drive.google.com/uc?export=download&id=17sVws3lUEMqG8I2xLbcymjhokEQXoVjZ" class="btn btn-primary py-4 px-5">
+					Download Resume
+					</a></p>
+    		</div>
+    </section>
+
+
+    <section class="ftco-section" id="project-section">
+      <div class="container">
+        	<div class="row justify-content-center mb-5 pb-5">
+          		<div class="col-md-7 heading-section text-center ftco-animate">
+            		<h1 class="big big-2">Projects</h1>
+            		<h2 class="mb-4">Projects</h2>
+            		<p>A collection of data analytics, business intelligence, machine learning, and web development projects built to solve real-world problems.</p>
+          		</div>
+        	</div>
+			<!-- Power Bi  -->
+			<h5 class="big-4" style="text-align: center;">Power Bi Dashboards </h5>
+			<div class="underline"></div>
+			<br>
+        	<div class="row d-flex">
+				
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href=global_store_project.html target="_blank"  class="block-20 zoom-effect" style="background-image: url('images/Global_card.png');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href=global_store_project.html target="_blank">Global Superstore Sales & Profit Analysis Dashboard</a></h3>
+                				<p>A Power BI analytics project focused on sales, profit, and order performance analysis. Includes KPI tracking, business insights, interactive dashboards, and a dedicated project documentation website.
+									<a href=https://github.com/gursewaksingh97/global-superstore-powerbi-analysis target="_blank" class="github-link"><br>GitHub Repo →</a>
+								</p>
+             				</div>
+            		</div>
+          		</div>
+
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              			<a href="criminals_analysis.html" target="_blank" class="block-20 zoom-effect" style="background-image: url('images/criminal_project.png');object-fit: cover;">
+              			</a>
+              			<div class="text mt-3 float-right d-block">
+                			<h3 class="heading"><a href="criminals_analysis.html" target="_blank" >
+							Crimes Records Analysis using Excel And PowerBi</a>
+							</h3>
+							<p>
+							A Power BI and Excel based criminal data analysis project focused on uncovering crime trends, demographic patterns, weapon usage, and high-risk regions through interactive dashboards .<a href="https://github.com/gursewaksingh97/Crimes-records-Analysis"><br>Github Repo →</a>
+							</p>
+              			</div>
+            		</div>
+          		</div>
+
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href="airlines_analysis.html" target="_blank" class="block-20 zoom-effect" style="background-image: url('images/airlines.png');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href="airlines_analysis.html"  target="_blank">Airlines Flights & Routes Analysis Dashboard</a></h3>
+                				<p>Built a Power BI dashboard project focused on airline ticket pricing, route analysis and travel duration trends. Includes interactive dashboards, business insights, and a dedicated project documentation website.
+									<a href="https://github.com/gursewaksingh97/airlines-flights-analysis-powerbi-dashboard" target="_blank" ><br>Github Repo →</a>
+								</p>
+             				</div>
+            		</div>
+          		</div>	
+<br>
+
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href=https://github.com/gursewaksingh97/global-cyber-security-threats-powerbi-analysis target="_blank" class="block-20 zoom-effect" style="background-image: url('images/global\ cyber.png');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href=https://github.com/gursewaksingh97/global-cyber-security-threats-powerbi-analysis  target="_blank">Global Cyber Security Threats Analysis Dashboard</a></h3>
+                				A Power BI project focused on cyber threats, attack patterns, and risk assessment. Includes affected user analysis, financial impact tracking, resolution monitoring, and interactive dashboards.
+								</p>
+             				</div>
+            		</div>
+          		</div>
+			
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href="https://github.com/gursewaksingh97/Customer-Shopping-Behavior-Analysis" target="_blank" class="block-20 zoom-effect" style="background-image: url('images/proj_1.jpg');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href="https://github.com/gursewaksingh97/Customer-Shopping-Behavior-Analysis" target="_blank">Customer Shopping Behavior Analysis</a></h3>
+                				<p>Developed a customer behavior analysis project using SQL,Python and PowerBi to extract meaningful insights from data, identify customer trends, and support data-driven business decisions.</p>
+             				</div>
+            		</div>
+          		</div>
+
+			
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              			<a href="https://github.com/gursewaksingh97/zepto-inventory-analysis" target="_blank" class="block-20 zoom-effect" style="background-image: url('images/proj_2.jpg');object-fit: cover;">
+              			</a>
+              			<div class="text mt-3 float-right d-block">
+                			<h3 class="heading"><a href="https://github.com/gursewaksingh97/zepto-inventory-analysis" target="_blank">
+							Zepto Inventry Analysis Using Sql And PowerBi </a>
+							</h3>
+							<p>Developed a Zepto Inventory Analysis project using SQL and Power BI to uncover insights on product demand, stock availability, and inventory optimization, enabling data-driven decision-making.</p>
+              			</div>
+            		</div>
+          		</div>
+				
+        	</div>
+			<br>
+			<h3 class="big-4" style="text-align: center;">ML Preditive Projects With StreamLit </h3>
+			<div class="underline"></div>
+			<br>
+        	<div class="row d-flex">
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href= "https://titanic-survival-predictorr.streamlit.app/" target="_blank" class="block-20 zoom-effect" style="background-image: url('images/titnaic.png');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href="https://titanic-survival-predictorr.streamlit.app/" target="_blank">Titanic Survival Predictive Model </a></h3>
+                				<p>Built a Machine Learning model to predict Titanic passenger survival based on demographic and travel information, and deployed it using Streamlit with an interactive user interface.
+								<a href="https://github.com/gursewaksingh97/titanic-survival-predictor" target="_blank" ><br>Github Repo →</a>
+								</p>
+             				</div>
+            		</div>
+          		</div>
+
+				
+			</div>
+<br>
+			<h3 class="big-4" style="text-align: center;">Sql Projects</h3>
+			<div class="underline"></div>
+			<br>
+        	<div class="row d-flex">
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href= "https://github.com/gursewaksingh97/online-books-store-sql-analysis" target="_blank" class="block-20 zoom-effect" style="background-image: url('images/onlinebooks.png');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href="https://github.com/gursewaksingh97/online-books-store-sql-analysis" target="_blank" >Online Books Store Analysis</a></h3>
+                				<p>SQL-based Online Book Store Analysis project to perform business insights, customer analysis, revenue calculations, and inventory management 
+								</p>
+             				</div>
+            		</div>
+          		</div>
+
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              			<a href="https://github.com/gursewaksingh97/zepto-inventory-sql-analysis" target="_blank" class="block-20 zoom-effect" style="background-image: url('images/proj_2.jpg');object-fit: cover;">
+              			</a>
+              			<div class="text mt-3 float-right d-block">
+                			<h3 class="heading"><a href="https://github.com/gursewaksingh97/zepto-inventory-sql-analysis" target="_blank">
+							Zepto Inventry SQL Analysis</a>
+							</h3>
+							<p>SQL-based inventory analysis project focused on pricing, discounts, stock management, revenue estimation, and product segmentation using advanced SQL queries and window functions.</p>
+              			</div>
+            		</div>
+          		</div>
+
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href= "https://github.com/gursewaksingh97/ott-platform-analytics" target="_blank" class="block-20 zoom-effect" style="background-image: url('images/sqlott.png');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href="https://github.com/gursewaksingh97/ott-platform-analytics" target="_blank" >OTT Platform SQL Analytics</a></h3>
+                				<p>Analyzed OTT platform data using PostgreSQL, CTEs, Views, and Window Functions to uncover user engagement, content performance, and revenue insights.
+								</p>
+             				</div>
+            		</div>
+          		</div>
+				
+			</div>
+			<br> 
+			
+			<h3 class="big-4" style="text-align: center;">FastAPIs Projects</h3>
+			<div class="underline"></div>
+			<br>
+        	<div class="row d-flex">
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href="movie_documentation.html" target="_blank"  class="block-20 zoom-effect" style="background-image: url('images/movie.png');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href="movie_documentation.html" target="_blank">Movie Tickets Management System </a></h3>
+                				<p>FastAPI backend application for managing movie ticket bookings. Built using FastAPI, PostgreSQL, SQLAlchemy ORM, and Pydantic &  Response models to perform complete CRUD operations.
+								<a href="https://github.com/gursewaksingh97/fastapi-movie-ticket-booking-system" target="_blank" ><br>Github Repo →</a>
+								</p>
+             				</div>
+            		</div>
+          		</div>
+
+
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href="Hotel_documentation.html" target="_blank"  class="block-20 zoom-effect" style="background-image: url('images/hotel_api1.PNG');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href="Hotel_documentation.html" target="_blank">Hotel Room Booking Management System </a></h3>
+                				<p>FastAPI backend project for hotel room booking management featuring CRUD APIs, PostgreSQL, SQLAlchemy ORM, Pydantic validation, exception handling, dependency injection, and middleware logging.
+								<a href="https://github.com/gursewaksingh97/fastapi-movie-ticket-booking-system" target="_blank" ><br>Github Repo →</a>
+								</p>
+             				</div>
+            		</div>
+          		</div>
+
+			</div>
+			<br>
+
+
+			<h3 class="big-4" style="text-align: center;">Excel Projects </h3>
+			<div class="underline"></div>
+			<br>
+        	<div class="row d-flex">
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href= "https://github.com/gursewaksingh97/Sales-Profit-Analysis-Excel_Dashboard" target="_blank" class="block-20 zoom-effect" style="background-image: url('images/excelsales.png');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href="https://github.com/gursewaksingh97/Sales-Profit-Analysis-Excel_Dashboard" target="_blank">Sales & Profit Excel Analysis </a></h3>
+                				<p>Analyzed sales data and built an interactive Excel dashboard using Data Cleaning, Pivot Tables, and Pivot Charts for actionable insights.
+								</p>
+             				</div>
+            		</div>
+          		</div>
+
+				<div class="col-md-4 d-flex ftco-animate">
+          			<div class="blog-entry justify-content-end">
+              				<a href= "https://github.com/gursewaksingh97/Store-Sales-Excel-Analysis-Dashboard" target="_blank" class="block-20 zoom-effect" style="background-image: url('images/excel2.png');">
+              				</a>
+              				<div class="text mt-3 float-right d-block">
+                				<h3 class="heading"><a href="https://github.com/gursewaksingh97/Store-Sales-Excel-Analysis-Dashboard" target="_blank">Store Sales Excel Analysis </a></h3>
+                				<p>Built an interactive Excel dashboard using Data Cleaning, Pivot Tables, and Pivot Charts to analyze store sales, customer behavior, and revenue trends.
+								</p>
+             				</div>
+            		</div>
+          		</div>
+				
+			</div>
+
+
+
+			
+	  	
+    </section> 
+
+
+<!-- ------------------------------contact-------------   -->
+
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section" style=" padding-top: 2px;" >
+      <div class="container">
+      	<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Contact</h1>
+            <h2 class="mb-4">Contact Me</h2>
+            <p>Below are the details to reach out to me!</p>
+          </div>
+        </div>
+
+        <div class="row d-flex contact-info mb-5">
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-map-signs"></span>
+          		</div>
+          		<h3 class="mb-4">Address</h3>
+	            <a href="https://www.google.com/maps/place/Phase+7,+Sector+61,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160062/@30.7044387,76.7272696,19z/data=!4m6!3m5!1s0x390fee8339e7fe73:0x59d8660b2c1f6e76!8m2!3d30.7040186!4d76.7296396!16s%2Fg%2F11c0xp7nkn?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: white;">
+					<p>Mohali, India</p>
+				</a>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-phone2"></span>
+          		</div>
+          		<h3 class="mb-4">Contact Number</h3>
+	            <p><a href="tel://0101010101">9814960392</a></p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-paper-plane"></span>
+          		</div>
+          		<h3 class="mb-4">Email Address</h3>
+	            <p><a href="mailto:info@yoursite.com">gursewakcse97@gmail.com</a></p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-globe"></span>
+          		</div>
+          		<h3 class="mb-4">Download Resume</h3>
+	            <p><a href="https://drive.google.com/uc?export=download&id=17sVws3lUEMqG8I2xLbcymjhokEQXoVjZ">Download Resume</a></p>
+	          </div>
+          </div>
+
+		  <div class="container">
+			<br>
+			<br>
+			<div class="row justify-content-center">
+				<div class="col-md-7 ftco-animate text-center">
+					<h2>Have a<span> Question?  &nbsp;&nbsp;&nbsp;&nbsp;</span> <a href="https://wa.me/919814960392" target="_blank" class="btn btn-primary py-3 px-8">Connect On Whatsapp</a> </h2>
+				</div>
+			</div>
+				<br>
+					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
+					  <li class="ftco-animate normal-txt">Find me on  </li>
+					  <li class="ftco-animate"><a href="https://linkedin.com/in/gursewakcse97" target="_blank"><span class="icon-linkedin"></span></a></li>  
+					  <li class="ftco-animate"><a href="https://x.com/gursewakk97" target="_blank"><span class="icon-twitter"></span></a></li>
+					  <li class="ftco-animate"><a href="https://www.facebook.com/gursewak.saini.526" target="_blank"><span class="icon-facebook"></span></a></li>
+					</ul>
+				<br>
+		   </div>
+   </div>
+ </section>
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  
+  <script src="js/main.js"></script>
+  </body>
+</html>

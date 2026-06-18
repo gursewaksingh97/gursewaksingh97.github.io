@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Superstore Documentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:radial-gradient(circle at top left,#17103b,#090414 60%);
+    color:white;
+    overflow-x:hidden;
+}
+
+nav{
+    width:100%;
+    padding:24px 70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:999;
+    backdrop-filter:blur(16px);
+    background:rgba(5,5,18,0.82);
+    border-bottom:1px solid rgba(99,102,241,0.2);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+nav ul{
+    display:flex;
+    gap:16px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#dbeafe;
+    padding:14px 24px;
+    border-radius:16px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(96,165,250,0.18);
+    transition:0.4s;
+    font-size:14px;
+    font-weight:600;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+    background:#2563eb;
+    color:white;
+    box-shadow:0 0 25px rgba(59,130,246,0.45);
+}
+
+.hero{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:100px 70px;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1300px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-text h1{
+    font-size:72px;
+    line-height:1.1;
+    margin-bottom:30px;
+    font-weight:800;
+}
+
+.hero-text h1 span{
+    color:#60a5fa;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    line-height:2;
+    font-size:18px;
+    margin-bottom:35px;
+}
+
+.hero-btns{
+    display:flex;
+    gap:20px;
+}
+
+.hero-btns a{
+    text-decoration:none;
+    padding:16px 28px;
+    border-radius:18px;
+    font-weight:700;
+    transition:0.4s;
+}
+
+.primary-btn{
+    background:#2563eb;
+    color:white;
+    box-shadow:0 0 35px rgba(59,130,246,0.35);
+}
+
+.secondary-btn{
+    border:1px solid rgba(96,165,250,0.25);
+    background:rgba(255,255,255,0.03);
+    color:#dbeafe;
+}
+
+.hero-btns a:hover{
+    transform:translateY(-5px);
+}
+
+.hero-dashboard{
+    width:100%;
+    background:rgba(10,16,30,0.75);
+    border-radius:34px;
+    padding:22px;
+    border:1px solid rgba(96,165,250,0.18);
+    box-shadow:0 0 45px rgba(59,130,246,0.18);
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+.hero-dashboard img{
+    width:100%;
+    border-radius:24px;
+}
+
+@keyframes floatCard{
+    0%{transform:translateY(0px)}
+    50%{transform:translateY(-10px)}
+    100%{transform:translateY(0px)}
+}
+
+.section{
+    width:100%;
+    padding:30px 70px 100px;
+}
+
+.section-container{
+    max-width:1300px;
+    margin:auto;
+}
+
+.section-card{
+    width:100%;
+    background:rgba(11,18,32,0.78);
+    border-radius:34px;
+    border:1px solid rgba(96,165,250,0.16);
+    padding:50px;
+    margin-bottom:45px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 0 35px rgba(59,130,246,0.08);
+    transition:0.5s;
+}
+
+.section-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 45px rgba(59,130,246,0.16);
+}
+
+.section-title{
+    font-size:48px;
+    color:#60a5fa;
+    margin-bottom:28px;
+    font-weight:800;
+}
+
+.section-card p{
+    color:#cbd5e1;
+    line-height:2;
+}
+
+.table-wrapper{
+    overflow-x:auto;
+    margin-top:25px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+table th{
+    background:#2563eb;
+    color:white;
+    padding:20px;
+    text-align:left;
+}
+
+table td{
+    padding:18px 20px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    background:rgba(255,255,255,0.02);
+    color:#dbeafe;
+}
+
+.dataset-info{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.info-box{
+    padding:25px;
+    border-radius:24px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(96,165,250,0.16);
+}
+
+.info-box h3{
+    color:#60a5fa;
+    margin-bottom:12px;
+}
+
+.questions-box{
+    width:100%;
+    padding:35px;
+    border-radius:28px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(96,165,250,0.16);
+}
+
+.questions-box ul{
+    padding-left:25px;
+}
+
+.questions-box li{
+    margin-bottom:18px;
+    line-height:1.9;
+    color:#dbeafe;
+}
+
+.flow-box{
+    width:100%;
+    padding:40px;
+    border-radius:28px;
+    background:rgba(37,99,235,0.08);
+    border:1px solid rgba(96,165,250,0.18);
+}
+
+.flow-box p{
+    text-align:center;
+    line-height:2.5;
+    font-size:22px;
+    font-weight:700;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:35px;
+}
+
+.dashboard-preview{
+    width:100%;
+    background:rgba(255,255,255,0.03);
+    padding:22px;
+    border-radius:30px;
+    border:1px solid rgba(96,165,250,0.16);
+    box-shadow:0 0 35px rgba(59,130,246,0.12);
+}
+
+.dashboard-preview img{
+    width:100%;
+    border-radius:22px;
+    transition:0.5s;
+}
+
+.dashboard-preview img:hover{
+    transform:scale(1.02);
+}
+
+.dashboard-preview h3{
+    margin-bottom:20px;
+    color:#60a5fa;
+    font-size:32px;
+}
+
+.dashboard-preview p{
+    margin-top:20px;
+}
+
+.kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:24px;
+    margin-top:35px;
+}
+
+.kpi-card{
+    background:linear-gradient(145deg,#131c38,#0b1220);
+    border-radius:28px;
+    padding:30px;
+    border:1px solid rgba(96,165,250,0.18);
+    position:relative;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.kpi-card::before{
+    content:'';
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(59,130,246,0.08);
+    top:-70px;
+    right:-60px;
+}
+
+.kpi-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 40px rgba(59,130,246,0.25);
+}
+
+.kpi-card h4{
+    margin-bottom:16px;
+    color:#dbeafe;
+}
+
+.kpi-card h2{
+    font-size:40px;
+    color:#60a5fa;
+}
+
+.insight-box{
+    width:100%;
+    padding:35px;
+    border-radius:28px;
+    margin-top:25px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(96,165,250,0.16);
+}
+
+.insight-box h3{
+    color:#60a5fa;
+    margin-bottom:22px;
+    font-size:28px;
+}
+
+.insight-box ul{
+    padding-left:24px;
+}
+
+.insight-box li{
+    margin-bottom:18px;
+    color:#dbeafe;
+    line-height:1.8;
+}
+
+.repo-stats{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin:40px 0;
+}
+
+.repo-card{
+    width:180px;
+    padding:25px;
+    text-align:center;
+    border:1px solid rgba(83,140,255,.35);
+    border-radius:18px;
+    background:rgba(15,18,45,.6);
+    backdrop-filter:blur(10px);
+    transition:.3s;
+}
+
+.repo-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(83,140,255,.35);
+}
+
+.repo-card h3{
+    font-size:2rem;
+    color:#5b9dff;
+    margin-bottom:10px;
+}
+
+.repo-card p{
+    color:#d7ddff;
+}
+
+.repo-btn{
+    display:block;
+    width:fit-content;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
+    padding:16px 38px;
+    border-radius:14px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    background:linear-gradient(
+        135deg,
+        #3b82f6,
+        #2563eb
+    );
+    box-shadow:0 0 20px rgba(59,130,246,.4);
+    transition:.3s;
+}
+
+.repo-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 35px rgba(59,130,246,.6);
+}
+
+.repo-footer{
+    margin-top:30px;
+    color:#aab6ff;
+    font-size:1rem;
+}
+
+.footer{
+    width:100%;
+    text-align:center;
+    padding:50px;
+    color:#94a3b8;
+    border-top:1px solid rgba(96,165,250,0.12);
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(70px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0px);
+}
+
+@media(max-width:1000px){
+
+    .hero-content{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:768px){
+
+    nav{
+        padding:20px;
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero,
+    .section{
+        padding:30px 22px 70px;
+    }
+
+    .hero-text h1{
+        font-size:46px;
+    }
+
+    .section-card{
+        padding:28px;
+    }
+
+    .section-title{
+        font-size:38px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+
+<div class="logo">
+Global <span>Superstore</span>
+</div>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#dictionary">Data Dictionary</a></li>
+<li><a href="#questions">Business Questions</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#dashboards">Dashboards</a></li>
+<li><a href="#insights">Insights</a></li>
+<li><a href="#repository">Repository</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero" id="overview">
+
+<div class="hero-content">
+
+<div class="hero-text reveal">
+
+<h1>
+Global Superstore <span>Documentation</span>
+</h1>
+
+<p>
+Industry-level Power BI documentation website showcasing complete sales, orders, profit and business performance analysis using interactive dashboards, KPI tracking and analytical business insights.
+</p>
+
+<div class="hero-btns">
+<a href="#dashboards" class="primary-btn">Explore Dashboards</a>
+<a href="#insights" class="secondary-btn">View Insights</a>
+</div>
+
+</div>
+
+<div class="hero-dashboard reveal">
+<img src="Orders Analysis.png" alt="dashboard">
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+<div class="section-container">
+
+<div class="section-card reveal">
+<h2 class="section-title">Problem Statement</h2>
+<p>
+A multinational retail company wants to analyze sales performance, customer behavior, profit generation, losses and product demand across different regions, countries and market segments.
+<br><br>
+The objective of this project is to build interactive Power BI dashboards capable of tracking business performance and generating meaningful business insights for better decision making.
+</p>
+</div>
+
+<div class="section-card reveal" id="dictionary">
+<h2 class="section-title">Data Dictionary</h2>
+
+
+<div class="dataset-info">
+
+<div class="info-box">
+<h3>Total Rows</h3>
+<p>51,290</p>
+</div>
+
+<div class="info-box">
+<h3>Total Columns</h3>
+<p>21</p>
+</div>
+
+<div class="info-box">
+<h3>Dataset Type</h3>
+<p>Retail Sales Dataset</p>
+</div>
+
+</div>
+<div class="table-wrapper">
+<table>
+<tr>
+<th>Column Name</th>
+<th>Description</th>
+</tr>
+
+<tr><td>Row ID</td><td>Unique row identifier</td></tr>
+<tr><td>Order ID</td><td>Unique order number</td></tr>
+<tr><td>Order Date</td><td>Date when the order was placed</td></tr>
+<tr><td>Ship Date</td><td>Date when order was shipped</td></tr>
+<tr><td>Ship Mode</td><td>Shipping method used</td></tr>
+<tr><td>Customer</td><td>Customer name</td></tr>
+<tr><td>Customer ID</td><td>Unique identifier of customer</td></tr>
+<tr><td>Segment</td><td>Customer segment</td></tr>
+<tr><td>City</td><td>Customer city</td></tr>
+<tr><td>State</td><td>Customer state</td></tr>
+<tr><td>Country</td><td>Customer country</td></tr>
+<tr><td>Postal Code</td><td>Area postal code</td></tr>
+<tr><td>Market</td><td>Market region</td></tr>
+<tr><td>Region</td><td>Sales region</td></tr>
+<tr><td>Product ID</td><td>Unique product identifier</td></tr>
+<tr><td>Category</td><td>Product category</td></tr>
+<tr><td>Sub-Category</td><td>Product sub category</td></tr>
+<tr><td>Product Name</td><td>Name of product</td></tr>
+<tr><td>Sales</td><td>Revenue generated by order</td></tr>
+<tr><td>Quantity</td><td>Number of items sold</td></tr>
+</table>
+</div>
+
+
+</div>
+
+<div class="section-card reveal" id="questions">
+<h2 class="section-title">Business Questions</h2>
+
+<div class="questions-box">
+<ul>
+<li>Which region generated the highest number of orders?</li>
+<li>Which category generated the maximum profit?</li>
+<li>Which products are top revenue generators?</li>
+<li>Which countries are generating losses?</li>
+<li>Which shipping mode is most frequently used?</li>
+<li>Which customer segment contributes highest revenue?</li>
+<li>Which market performs best in terms of sales?</li>
+<li>Which sub-category has lowest profitability?</li>
+</ul>
+</div>
+
+</div>
+
+<div class="section-card reveal" id="workflow">
+<h2 class="section-title">Project Workflow</h2>
+
+<div class="flow-box">
+<p>
+Dataset Import
+<br>↓<br>
+Data Cleaning
+<br>↓<br>
+Removed Unnecessary Columns
+<br>↓<br>
+Created Required Columns
+<br>↓<br>
+Data Transformation
+<br>↓<br>
+KPI Development
+<br>↓<br>
+Dashboard Designing
+<br>↓<br>
+Generated Business Insights
+</p>
+</div>
+
+</div>
+
+<div class="section-card reveal" id="dashboards">
+<h2 class="section-title">Dashboard Documentation</h2>
+
+<div class="dashboard-grid">
+
+<div class="dashboard-preview">
+<h3>Orders Analysis Dashboard</h3>
+<img src="Orders Analysis.png" alt="orders dashboard">
+<p style="text-align: center;">
+Focused on order trends, customer behavior, regional order analysis, order priorities and product demand tracking.
+</p>
+</div>
+
+<div class="kpi-grid">
+<div class="kpi-card"><h4>Total Revenue</h4><h2>12.64M</h2></div>
+<div class="kpi-card"><h4>Total Orders</h4><h2>25K</h2></div>
+<div class="kpi-card"><h4>Total Customers</h4><h2>2K</h2></div>
+<div class="kpi-card"><h4>Most Ordered Product</h4><h2>Staples</h2></div>
+<div class="kpi-card"><h4>Highest Orders Region</h4><h2>Central</h2></div>
+</div>
+
+<div class="dashboard-preview">
+<h3>Sales & Profit Analysis Dashboard</h3>
+<img src="Sales & Profit Analysis.png" alt="sales profit dashboard">
+<p style="text-align: center;">
+Focused on revenue generation, gross profit, net loss, profitability tracking and country-wise profit analysis.
+</p>
+</div>
+
+<div class="kpi-grid">
+<div class="kpi-card"><h4>Total Revenue</h4><h2>12.64M</h2></div>
+<div class="kpi-card"><h4>Gross Profit</h4><h2>2.39M</h2></div>
+<div class="kpi-card"><h4>Net Profit</h4><h2>1.47M</h2></div>
+<div class="kpi-card"><h4>Net Loss</h4><h2>920K</h2></div>
+<div class="kpi-card"><h4>Profit Margin %</h4><h2>11.61%</h2></div>
+<!-- <div class="kpi-card"><h4>Loss %</h4><h2>7.28%</h2></div> -->
+</div>
+
+</div>
+
+</div>
+
+<div class="section-card reveal" id="insights">
+<h2 class="section-title">Key Insights</h2>
+
+<div class="insight-box">
+<h3>Orders Analysis Insights</h3>
+<ul>
+<li>Office Supplies category generated the highest number of orders.</li>
+<li>Medium priority orders contributed majority of total orders.</li>
+<li>Central region recorded the highest order volume.</li>
+<li>Staples emerged as the most frequently ordered product.</li>
+<li>Consumer segment generated more than 50% of total orders.</li>
+</ul>
+</div>
+
+<div class="insight-box">
+<h3>Sales & Profit Insights</h3>
+<ul>
+<li>Technology category generated the highest overall profit.</li>
+<li>United States contributed highest net profit among all countries.</li>
+<li>Gross profit margin remained above 11%.</li>
+<li>Net loss accounted for nearly 38% of total gross profit.</li>
+<li>Revenue peaked during November and December.</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+
+<section id="repository" class="section">
+    <div class="container">
+
+        <h2 class="section-title">Project Repository</h2>
+
+        <p class="section-description">
+            Access the complete project repository containing datasets,
+            Power BI dashboard files, documentation website source code,
+            screenshots and supporting project resources.
+        </p>
+
+        <div class="repo-stats">
+
+            <div class="repo-card">
+                <h3>2</h3>
+                <p>Dashboards</p>
+            </div>
+
+            <div class="repo-card">
+                <h3>1</h3>
+                <p>Dataset</p>
+            </div>
+
+            <div class="repo-card">
+                <h3>20+</h3>
+                <p>DAX Measures</p>
+            </div>
+
+            <div class="repo-card">
+                <h3>1</h3>
+                <p>Documentation Website</p>
+            </div>
+        </div>
+
+        <a href="https://github.com/gursewaksingh97/global-superstore-powerbi-analysis"
+           target="_blank"
+           class="repo-btn"  style="text-align: center;">
+            Access Complete Repository
+        </a>
+        
+        <p class="repo-footer" style="text-align: center;">
+            Turning Raw Data Into Actionable Business Insights.
+        </p>
+
+    </div>
+</section>
+
+<div class="footer">
+Global Superstore Analysis • Power BI Documentation Website
+</div>
+
+<script>
+
+const sections = document.querySelectorAll("section, .section-card")
+const navLinks = document.querySelectorAll("nav ul li a")
+
+window.addEventListener("scroll", () => {
+
+let current = ""
+
+sections.forEach(section => {
+
+const sectionTop = section.offsetTop
+
+if(pageYOffset >= sectionTop - 250){
+current = section.getAttribute("id")
+}
+})
+
+navLinks.forEach(link => {
+link.classList.remove("active")
+
+if(link.getAttribute("href") === `#${current}`){
+link.classList.add("active")
+}
+})
+})
+
+window.addEventListener('scroll',reveal)
+
+function reveal(){
+
+let reveals=document.querySelectorAll('.reveal')
+
+for(let i=0;i<reveals.length;i++){
+
+let windowheight=window.innerHeight
+let revealtop=reveals[i].getBoundingClientRect().top
+let revealpoint=120
+
+if(revealtop < windowheight - revealpoint){
+reveals[i].classList.add('active')
+}
+}
+}
+
+reveal()
+
+</script>
+
+</body>
+</html>

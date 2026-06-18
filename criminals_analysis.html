@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Criminal Dataset Analysis</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Segoe UI',sans-serif;
+    }
+
+    body{
+      background:#000000;
+      color:white;
+      overflow-x:hidden;
+    }
+    body::before{
+            content:'';
+            position:fixed;
+            width:500px;
+            height:500px;
+            background:rgba(255,136,0,0.10);
+            top:-200px;
+            left:-150px;
+            border-radius:50%;
+            filter:blur(120px);
+            z-index:-1;
+            animation:float1 8s ease-in-out infinite alternate;
+        }
+
+        body::after{
+            content:'';
+            position:fixed;
+            width:450px;
+            height:450px;
+            background:rgba(255,94,0,0.08);
+            bottom:-200px;
+            right:-150px;
+            border-radius:50%;
+            filter:blur(120px);
+            z-index:-1;
+            animation:float2 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes float1{
+            from{
+                transform:translateY(0px);
+            }
+            to{
+                transform:translateY(40px);
+            }
+        }
+
+        @keyframes float2{
+            from{
+                transform:translateY(0px);
+            }
+            to{
+                transform:translateY(-40px);
+            }
+        }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:fixed;
+      top:0;
+      left:0;
+      padding-top:28px;
+      z-index:1000;
+      background:transparent;
+    }
+
+    nav ul{
+      display:flex;
+      gap:24px;
+      list-style:none;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      padding:14px 28px;
+      border-radius:16px;
+      background:#0f0f0f;
+      border:1px solid rgba(255,136,0,0.2);
+      transition:0.4s ease;
+      font-size:17px;
+    }
+
+    nav ul li a:hover{
+      background:#ff8800;
+      color:black;
+      transform:scale(1.06);
+      box-shadow:0 0 25px #ff8800;
+    }
+
+    /* ACTIVE BUTTON */
+
+    nav ul li a.active{
+      background:#ff8800;
+      color:black;
+      transform:scale(1.06);
+      box-shadow:0 0 25px #ff8800;
+    }
+
+    /* SECTIONS */
+
+    section{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:120px 20px;
+    }
+
+    /* MAIN CONTAINER */
+
+    .container{
+      width:85%;
+      max-width:1150px;
+      background:#111111;
+      border-radius:28px;
+      padding:45px;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:0.4s ease;
+    }
+
+    .container:hover{
+      transform:scale(1.02);
+      box-shadow:0 0 35px rgba(255,136,0,0.45);
+    }
+
+    /* HERO SECTION */
+
+    .hero-title{
+      text-align:center;
+      font-size:72px;
+      color:#ff9900;
+      margin-bottom:25px;
+      font-weight:700;
+    }
+
+    .hero-subtitle{
+      text-align:center;
+      font-size:22px;
+      color:#d8d8d8;
+      line-height:1.8;
+    }
+
+    /* HEADINGS */
+
+    h2{
+      color:#ff9900;
+      font-size:42px;
+      margin-bottom:25px;
+    }
+
+    p{
+      color:#d0d0d0;
+      line-height:1.9;
+      font-size:18px;
+    }
+
+    /* TABLE */
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:25px;
+      overflow:hidden;
+      border-radius:18px;
+    }
+
+    table th{
+      background:#ff8800;
+      color:black;
+      padding:18px;
+      font-size:18px;
+    }
+
+    table td{
+      padding:16px;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      color:#d7d7d7;
+      background:#171717;
+    }
+
+    table tr:hover td{
+      background:#1f1f1f;
+    }
+
+    /* KPI & VISUAL BOXES */
+
+    .grid-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:22px;
+      margin-top:30px;
+    }
+
+    .mini-card{
+      background:#171717;
+      border-radius:20px;
+      padding:28px;
+      border:1px solid rgba(255,136,0,0.1);
+      transition:0.4s ease;
+    }
+
+    .mini-card:hover{
+      transform:translateY(-6px) scale(1.03);
+      box-shadow:0 0 25px rgba(255,136,0,0.55);
+    }
+
+    .mini-card h3{
+      color:#ff9900;
+      margin-bottom:14px;
+      font-size:22px;
+    }
+
+    .mini-card p{
+      font-size:16px;
+      line-height:1.7;
+    }
+
+    /* BUSINESS QUESTIONS */
+      .question-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:22px;
+            margin-top:20px;
+        }
+        .question-card{
+            background:#171717;
+            border-radius:22px;
+            padding:28px;
+            border:1px solid rgba(255,136,0,0.1);
+            transition:0.4s ease;
+            line-height:1.8;
+            color:#d7d7d7;
+        }
+        .question-card:hover{
+            transform:translateY(-8px) scale(1.02);
+            box-shadow:0 0 28px rgba(255,136,0,0.35);
+            border-color:#ff8800;
+        }
+
+    /* prep  */
+    .top-line{
+            text-align:center;
+            margin-bottom:35px;
+            font-size:20px;
+            color:#e0e0e0;
+            line-height:1.8;
+        }
+
+        .prep-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+            gap:22px;
+        }
+
+        .prep-card{
+            background:#171717;
+            border-radius:22px;
+            padding:30px;
+            border:1px solid rgba(255,136,0,0.1);
+            transition:0.4s ease;
+            text-align:center;
+        }
+
+        .prep-card:hover{
+            transform:translateY(-8px) scale(1.03);
+            box-shadow:0 0 28px rgba(255,136,0,0.35);
+            border-color:#ff8800;
+        }
+
+        .bottom-line{
+            text-align:center;
+            margin-top:40px;
+            line-height:1.9;
+            color:#d0d0d0;
+        }
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      .hero-title{
+        font-size:46px;
+      }
+
+      .hero-subtitle{
+        font-size:18px;
+      }
+
+      h2{
+        font-size:34px;
+      }
+
+      nav ul{
+        gap:12px;
+      }
+
+      nav ul li a{
+        padding:12px 18px;
+        font-size:15px;
+      }
+
+      .container{
+        width:95%;
+        padding:28px;
+      }
+
+    }
+
+
+    .dashboard-box{ width:100%; 
+      height:600px; 
+      margin-top:30px; 
+      border-radius:28px; 
+      border:2px dashed rgba(255,136,0,0.4); 
+      background:#171717; 
+      display:flex; 
+      justify-content:center; 
+      align-items:center; 
+      color:#ff9900; 
+      font-size:32px; 
+      font-weight:700; 
+      transition:0.4s ease; } 
+      .dashboard-box:hover{ 
+        transform:scale(1.01); 
+        box-shadow:0 0 35px rgba(255,136,0,0.35); 
+        border-color:#ff8800; }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <ul>
+
+      <li>
+        <a href="#overview" class="active">Overview</a>
+      </li>
+
+      <li>
+        <a href="#problem">Problem Statement</a>
+      </li>
+
+      <li>
+        <a href="#dictionary">Data Dictionary</a>
+      </li>
+
+      <li>
+        <a href="#business">Business Questions</a>
+      </li>
+      <li>
+        <a href="#pipeline">Data Preprocessing</a>
+      </li>
+      <li>
+        <a href="#kpis">KPIs</a>
+      </li>
+
+      <li>
+        <a href="#visuals">Visualizations</a>
+      </li>
+      <li> <a href="#dashboard">Dashboard</a> </li>
+    </ul>
+
+  </nav>
+
+  <!-- OVERVIEW -->
+
+  <section id="overview">
+
+    <div class="container">
+
+      <h1 class="hero-title">
+        Criminal Dataset Analysis
+      </h1>
+
+      <p class="hero-subtitle">
+
+        A modern analytical project focused on identifying criminal trends,
+        demographic patterns, behavioral indicators, and operational insights
+        using Power BI and data storytelling techniques.
+
+      </p>
+
+    </div>
+    
+
+  </section>
+
+  <!-- PROBLEM STATEMENT -->
+
+  <section id="problem">
+
+    <div class="container">
+
+      <h2>Problem Statement</h2>
+
+      <p>
+
+       A national crime investigation department collects criminal records from multiple regions including urban and rural areas across different states. The dataset contains information about crime types, criminal activities, victim demographics, arrest status, locations, and time-based incidents.
+          <br><br>
+
+      The management team wants to analyze crime patterns, high-risk areas, criminal activity trends, and law enforcement performance using an interactive dashboard built in Tableau.
+          <br><br>
+
+The goal is to transform raw crime data into meaningful insights that can help authorities improve public safety, optimize police resources, and support strategic decision-making.
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- DATA DICTIONARY -->
+
+  <section id="dictionary">
+
+    <div class="container">
+
+      <h2>Data Dictionary</h2>
+
+      <table>
+
+        <tr>
+          <th>Column Name</th>
+          <th>Description</th>
+        </tr>
+
+        <tr>
+          <td>Id</td>
+          <td>Unique identifier for each incident record.</td>
+        </tr>
+
+        <tr>
+          <td>Name</td>
+          <td>Name of the individual involved in the incident.</td>
+        </tr>
+
+        <tr>
+          <td>Date</td>
+          <td>Date on which the incident occurred.</td>
+        </tr>
+
+        <tr>
+          <td>Manner Of Death</td>
+          <td>Method or type of death reported in the incident.</td>
+        </tr>
+
+        <tr>
+          <td>Armed</td>
+          <td>Indicates the type of weapon or object carried by the individual.</td>
+        </tr>
+
+        <tr>
+          <td>Age</td>
+          <td>Age of the individual involved in the incident.</td>
+        </tr>
+
+        <tr>
+          <td>Gender</td>
+          <td>Gender of the individual.</td>
+        </tr>
+
+        <tr>
+          <td>Race</td>
+          <td>Ethnicity or racial background of the individual.</td>
+        </tr>
+
+        <tr>
+          <td>City</td>
+          <td>City where the incident took place.</td>
+        </tr>
+
+        <tr>
+          <td>State</td>
+          <td>State where the incident occurred.</td>
+        </tr>
+
+        <tr>
+          <td>Signs Of Mental Illness</td>
+          <td>Indicates whether signs of mental illness were observed.</td>
+        </tr>
+
+        <tr>
+          <td>Threat Level</td>
+          <td>Threat level assigned during the incident.</td>
+        </tr>
+
+        <tr>
+          <td>Flee</td>
+          <td>Status showing whether the individual attempted to flee.</td>
+        </tr>
+
+        <tr>
+          <td>Body Camera</td>
+          <td>Shows whether body camera evidence was available during the incident.</td>
+        </tr>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- BUSINESS QUESTIONS -->
+
+  <section id="business">
+
+        <div class="container">
+
+            <h2>Key Business Questions</h2>
+
+            <div class="question-grid">
+
+                <div class="question-card">
+                    Which crime category has the highest number of reported cases?
+                </div>
+
+                <div class="question-card">
+                    Which state or region reports the maximum criminal activities?
+                </div>
+
+                <div class="question-card">
+                    How have criminal incidents changed over time?
+                </div>
+
+                <div class="question-card">
+                    Which age group is most frequently involved in criminal incidents?
+                </div>
+
+                <div class="question-card">
+                    What percentage of incidents involve mental illness indicators?
+                </div>
+
+                <div class="question-card">
+                    Which locations can be identified as high-risk crime zones?
+                </div>
+
+                <div class="question-card">
+                    Which weapon or armed category is most commonly involved in incidents?
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+<!-- solution  -->
+
+  <section id="pipeline">
+
+        <div class="container">
+
+            <h2>Data Preparation Pipeline</h2>
+
+            <div class="top-line">
+
+                Transforming raw criminal records into a structured and analytics-ready dataset for Power BI visualization.
+
+            </div>
+
+            <div class="prep-grid">
+
+                <div class="prep-card">
+                    Missing values checked and handled
+                </div>
+                <div class="prep-card">
+                    Duplicate records verified
+                </div>
+
+                <div class="prep-card">
+                    Data consistency improved
+                </div>
+
+                <div class="prep-card">
+                    Required analytical columns created
+                </div>
+                
+            </div>
+
+            <div class="bottom-line">
+
+                The dataset was successfully cleaned, transformed, and prepared for advanced dashboard analytics and business intelligence reporting.
+
+            </div>
+
+        </div>
+
+    </section>
+
+  <!-- KPIs -->
+
+  <section id ='kpis' >
+
+    <div class="container">
+
+      <h2>KPIs</h2>
+
+      <div class="grid-box">
+
+        <div class="mini-card">
+          <h3>Total Criminal Incident Records</h3>
+          <p>Measures the total number of incidents available in the dataset.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Dominant Age Group</h3>
+          <p>Represents the age group most frequently involved in incidents.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Mental Illness Ratio</h3>
+          <p>Shows the percentage of incidents involving mental illness indicators.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Most Affected State</h3>
+          <p>Identifies the state with the highest criminal incidents.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Most Used Weapon</h3>
+          <p>Highlights the most frequently used weapon category.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- VISUALIZATIONS -->
+
+  <section id="visuals">
+
+    <div class="container">
+
+      <h2>Storytelling Visualizations</h2>
+
+      <div class="grid-box">
+
+        <div class="mini-card">
+          <h3>Crimes Distribution Over Armed Type</h3>
+          <p>Analyzes criminal incidents based on weapon categories.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Top 5 Crime Affected States</h3>
+          <p>Highlights states with the highest criminal activity.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Crimes Distribution by Age Group & Race</h3>
+          <p>Represents crime distribution across age groups and races.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Analyze Overall Data by Gender</h3>
+          <p>Provides dynamic gender-based analysis using interactive filtering.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Crime Intensity Across States</h3>
+          <p>Displays geographical distribution of criminal incidents.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="dashboard"> 
+    <div class="container"> 
+      <h2>Dashboard Preview</h2> 
+      <div class="dashboard-box"> 
+        <img src="criminalDashboard.png" alt="Dashboard" style=" width:100%; height:100%; object-fit:cover; border-radius:28px; ">
+      </div> 
+    </div> 
+  </section>
+
+  <!-- ACTIVE NAVBAR SCRIPT -->
+
+  <script>
+
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    window.addEventListener("scroll", () => {
+
+      let current = "";
+
+      sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 200;
+
+        if(pageYOffset >= sectionTop){
+          current = section.getAttribute("id");
+        }
+
+      });
+
+      navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href") === "#" + current){
+          link.classList.add("active");
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
